@@ -1,0 +1,23 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+
+> Task :bootRun
+2023-08-11T18:54:03.216+08:00  INFO 23708 --- [  restartedMain] c.i.LearnSpringSecurityApplication       : Starting LearnSpringSecurityApplication using Java 17.0.7 with PID 23708 (/Users/ansarismagilov/Desktop/CODE/SpringPractise/learn-spring-security/build/classes/java/main started by ansarismagilov in /Users/ansarismagilov/Desktop/CODE/SpringPractise/learn-spring-security)
+2023-08-11T18:54:03.218+08:00  INFO 23708 --- [  restartedMain] c.i.LearnSpringSecurityApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-08-11T18:54:03.238+08:00  INFO 23708 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-11T18:54:03.238+08:00  INFO 23708 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-11T18:54:03.612+08:00  INFO 23708 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-11T18:54:03.616+08:00  INFO 23708 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-11T18:54:03.616+08:00  INFO 23708 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-11T18:54:03.637+08:00  INFO 23708 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-11T18:54:03.638+08:00  INFO 23708 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 399 ms
+2023-08-11T18:54:03.648+08:00  INFO 23708 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-11T18:54:03.710+08:00  INFO 23708 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:e4b72fc9-494e-4e4e-8e0a-1c7340dca752 user=SA
+2023-08-11T18:54:03.710+08:00  INFO 23708 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-11T18:54:03.715+08:00  INFO 23708 --- [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:e4b72fc9-494e-4e4e-8e0a-1c7340dca752'
+2023-08-11T18:54:03.898+08:00  INFO 23708 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c65c002, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f6518a7, org.springframework.security.web.context.SecurityContextHolderFilter@7cc2b042, org.springframework.security.web.header.HeaderWriterFilter@6fda7437, org.springframework.security.web.csrf.CsrfFilter@44b4f386, org.springframework.security.web.authentication.logout.LogoutFilter@1bdfa53, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6102e376, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1ee88454, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@45b5893a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@42f22425, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44b50ec2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@771f1649, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a8121b5, org.springframework.security.web.access.ExceptionTranslationFilter@6274903d, org.springframework.security.web.access.intercept.AuthorizationFilter@7f93c599]
+2023-08-11T18:54:03.918+08:00  INFO 23708 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-11T18:54:03.928+08:00  INFO 23708 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-11T18:54:03.933+08:00  INFO 23708 --- [  restartedMain] c.i.LearnSpringSecurityApplication       : Started LearnSpringSecurityApplication in 0.848 seconds (process running for 0.984)
