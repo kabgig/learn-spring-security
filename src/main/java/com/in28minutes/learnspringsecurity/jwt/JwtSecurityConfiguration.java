@@ -1,52 +1,41 @@
-package com.in28minutes.learnspringsecurity.basic;
+package com.in28minutes.learnspringsecurity.jwt;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
 
 import javax.sql.DataSource;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-//@Configuration
-public class BasicAuthSecurityConfiguration {
+@Configuration
+public class JwtSecurityConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        
         http.authorizeHttpRequests(
                 (requests) -> requests.anyRequest().authenticated());
-        //http.formLogin(withDefaults());
         http.sessionManagement(
                 session -> session.sessionCreationPolicy(
                         SessionCreationPolicy.STATELESS));
         http.httpBasic(withDefaults());
         http.csrf(csrf -> csrf.disable());
-       // http.headers(header -> header.frameOptions(frameOptions -> frameOptions.disable()));
         http.headers(frame -> frame.frameOptions(a -> a.sameOrigin())); //the same as previous line
+        http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
         return http.build();
     }
-
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//        var user = User.withUsername("in28minutes")
-//                .password("{noop}dummy")
-//                .roles("USER")
-//                .build();
-//        var admin = User.withUsername("admin")
-//                .password("{noop}dummy")
-//                .roles("ADMIN")
-//                .build();
-//        return new InMemoryUserDetailsManager(user, admin);
-//    }
 
     @Bean
     public DataSource dataSource(){
@@ -81,4 +70,9 @@ public class BasicAuthSecurityConfiguration {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+//    @Bean
+//    public JwtDecoder jwtDecoder(){
+//        return decoder;
+//    }
 }
