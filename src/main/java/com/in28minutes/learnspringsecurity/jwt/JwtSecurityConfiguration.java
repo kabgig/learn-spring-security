@@ -34,13 +34,14 @@ import java.util.UUID;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-@Configuration
+//@Configuration
 public class JwtSecurityConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(
-                (requests) -> requests.anyRequest().authenticated());
+                auth -> auth
+                        .anyRequest().authenticated());
         http.sessionManagement(
                 session -> session.sessionCreationPolicy(
                         SessionCreationPolicy.STATELESS));

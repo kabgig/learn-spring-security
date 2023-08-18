@@ -1,7 +1,11 @@
 package com.in28minutes.learnspringsecurity.resources;
 
 import com.in28minutes.Lgr;
+import jakarta.annotation.security.RolesAllowed;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +29,10 @@ public class TodoResource {
         return TODO_LIST.get(0);
     }
     @PostMapping("users/{username}/todos")
+    @PreAuthorize("hasRole('USER') and #username == authentication.name")
+    @PostAuthorize("returnObject.username == 'in28minutes'")
+    @RolesAllowed({"USER","ADMIN"})
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
     public void CreateTodoForSpecificUser(
             @PathVariable String username,
             @RequestBody Todo todo){
